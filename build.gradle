@@ -1,0 +1,50 @@
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile group: 'com.google.guava', name: 'guava', version: '23.0-rc1'
+}
+
+sourceSets.main.java.srcDirs = ['src']
+
+task runMainA(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'test.MainA'
+}
+
+task runMainB(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'test.MainB'
+}
+
+task runMainC(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'test.MainC'
+}
+
+task runMainD(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'test.MainD'
+	jvmArgs '-Dcom.google.appengine.runtime.environment=Production'
+}
+
+task runMainE(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'test.MainE'
+}
+
+task runMainF(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'test.MainF'
+}
+
+task runMainG(type: JavaExec) {
+	classpath = sourceSets.main.runtimeClasspath
+	main = 'test.MainG'
+	jvmArgs '-Dcom.google.appengine.runtime.environment=Production'
+}
+
+defaultTasks 'runMainA', 'runMainB', 'runMainC', 'runMainD', 'runMainE', 'runMainF', 'runMainG'
